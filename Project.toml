@@ -1,0 +1,13 @@
+name = "aoc19"
+uuid = "384d7add-228c-4a5a-b15d-7437b6cf49e8"
+authors = ["Gauthier Soleilhac"]
+version = "0.1.0"
+
+[compat]
+julia = "1.3"
+
+[extras]
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[targets]
+test = ["Test"]
