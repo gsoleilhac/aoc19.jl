@@ -3,6 +3,16 @@
 [![Build Status](https://travis-ci.com/gsoleilhac/aoc19.jl.svg?branch=master)](https://travis-ci.com/gsoleilhac/aoc19.jl)
 [![Codecov](https://codecov.io/gh/gsoleilhac/aoc19.jl/branch/master/graph/badge.svg)](https://codecov.io/gh/gsoleilhac/aoc19.jl)
 
-|      | part1      | part2    |
-|------|------------|----------|
-| day1 | 119.471 ns | 1.710 μs |
+### Running
+
+```julia
+julia> ]dev https://github.com/gsoleilhac/aoc19.jl
+julia> using aoc19
+julia> part1(day = 1)
+julia> part2(day = 1)
+julia> aoc19.benchmarkAll()
+```
+
+| day | part1      | part2    |
+|-----|------------|----------|
+| 1   | 119.471 ns | 1.710 μs |
