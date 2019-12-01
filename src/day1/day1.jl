@@ -2,7 +2,7 @@ module day1
 
 using DelimitedFiles
 
-input = vec(readdlm(joinpath(@__DIR__, "input.txt"), Int))
+const input = vec(readdlm(joinpath(@__DIR__, "input.txt"), Int))
 
 fuelRequired(x) = x ÷ 3 - 2
 part1(input) = sum(fuelRequired, input)
