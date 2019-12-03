@@ -24,7 +24,7 @@ end
 end
 
 
-@testset "day1" begin
+@testset "day2" begin
     @testset "part1" begin
         @test aoc19.day2.process!([1,9,10,3,2,3,11,0,99,30,40,50]) == [3500,9,10,70,2,3,11,0,99,30,40,50]
         @test aoc19.day2.process!([1,0,0,0,99]) == [2,0,0,0,99]
@@ -38,5 +38,24 @@ end
 
     @testset "part2" begin
         @test part2(day = 2) == 2552
+    end
+end
+
+@testset "day3" begin
+    ex1 = ["R8" "U5" "L5" "D3" ; "U7" "R6" "D4" "L4"]
+    ex2 = ["R75" "D30" "R83" "U83" "L12" "D49" "R71" "U7" "L72" ; "U62" "R66" "U55" "R34" "D71" "R55" "D58" "R83" ""]
+    ex3 = ["R98" "U47" "R26" "D63" "R33" "U87" "L62" "D20" "R33" "U53" "R51" ; "U98" "R91" "D20" "R16" "D67" "R40" "U7" "R15" "U6" "R7" ""]
+    @testset "part1" begin
+        @test aoc19.day3.part1(ex1) == 6
+        @test aoc19.day3.part1(ex2) == 159
+        @test aoc19.day3.part1(ex3) == 135
+        @test part1(day = 3) == 709
+    end
+
+    @testset "part2" begin
+        @test aoc19.day3.part2(ex1) == 30
+        @test aoc19.day3.part2(ex2) == 610
+        @test aoc19.day3.part2(ex3) == 410
+        @test part2(day = 3) == 13836
     end
 end
