@@ -59,3 +59,12 @@ end
         @test part2(day = 3) == 13836
     end
 end
+
+@testset "day4" begin
+    @testset "part1" begin
+        @test part1(day = 4) == 2814
+    end
+    @testset "part2" begin
+        @test part2(day = 4) == 1991
+    end
+end

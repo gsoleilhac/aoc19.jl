@@ -34,5 +34,14 @@ function part2(; day::Int = min(Dates.day(Dates.today()), 25))
     m.part2(m.input)
 end
 
+function benchmark(; day::Int = min(Dates.day(Dates.today()), 25))
+    df = DataFrame(part1 = String[], part2 = String[])
+    m = getproperty(@__MODULE__, Symbol("day$day"))
+    t1 = @belapsed($m.part1($(m.input)))
+    t2 = @belapsed($m.part2($(m.input)))
+    push!(df, formatTime.((t1, t2)))
+    df
+end
+
 
 end # module
