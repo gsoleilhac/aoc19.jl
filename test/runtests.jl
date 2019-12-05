@@ -68,3 +68,20 @@ end
         @test part2(day = 4) == 1991
     end
 end
+
+@testset "day5" begin
+    @testset "part1" begin
+        @test part1(day = 5) == 10987514
+    end
+
+    @testset "part2" begin
+        program = [3,21,1008,21,8,20,1005,20,22,107,8,21,20,1006,20,31,
+        1106,0,36,98,0,0,1002,21,125,20,4,20,1105,1,46,104,
+        999,1105,1,46,1101,1000,1,20,4,20,1105,1,46,98,99]
+        @test aoc19.day5.part1(program, -1) == 999
+        @test aoc19.day5.part1(program, 7) == 999
+        @test aoc19.day5.part1(program, 8) == 1000
+        @test aoc19.day5.part1(program, 9) == 1001
+        @test part2(day = 5) == 14195011
+    end
+end
