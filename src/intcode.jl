@@ -9,8 +9,7 @@ function process_opcode!(index, p, input, output)
     opcode = p[index] % 100
     modes = Dict( i => v for (i,v) in enumerate(digits(p[index])[3:end]))
     if opcode == 1
-        a, b = get(p, index + 1, modes, 1), get(p, index + 2, modes, 2)
-        p[p[index + 3] + 1] = a + b
+        p[p[index + 3] + 1] = get(p, index + 1, modes, 1) + get(p, index + 2, modes, 2)
         return index + 4
     elseif opcode == 2
         p[p[index + 3] + 1] = get(p, index + 1, modes, 1) * get(p, index + 2, modes, 2)
