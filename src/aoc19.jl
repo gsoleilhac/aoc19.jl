@@ -5,7 +5,9 @@ import DataFrames: DataFrame
 import Dates
 
 export part1, part2
+export run_program!, process_opcode!
 
+include("intcode.jl")
 for day = 1:25
     include("day$day/day$day.jl")
 end
