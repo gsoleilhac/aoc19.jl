@@ -85,3 +85,17 @@ end
         @test part2(day = 5) == 14195011
     end
 end
+
+@testset "day6" begin
+    @testset "part1" begin
+        input = [["COM","B"], ["B","C"], ["C","D"], ["D","E"], ["E","F"], ["B","G"], ["G","H"], ["D","I"], ["E","J"], ["J","K"], ["K","L"]]
+        @test aoc19.day6.part1(input) == 42
+        @test part1(day = 6) == 245089
+    end
+
+    @testset "part2" begin
+        input = [["COM","B"], ["B","C"], ["C","D"], ["D","E"], ["E","F"], ["B","G"], ["G","H"], ["D","I"], ["E","J"], ["J","K"], ["K","L"], ["K", "YOU"], ["I", "SAN"]]
+        @test aoc19.day6.part2(input) == 4
+        @test part2(day = 6) == 511
+    end
+end
