@@ -1,8 +1,8 @@
 module aoc19
 
-using BenchmarkTools
+using BenchmarkTools, ProgressMeter
 import DataFrames: DataFrame
-import Dates
+import Dates, REPL
 
 export part1, part2
 export run_program!, process_opcode!
@@ -16,12 +16,17 @@ formatTime(t) = (1e9 * t) |> BenchmarkTools.prettytime
 
 function benchmarkAll(; onlyOnce = false)
     df = DataFrame(part1 = String[], part2 = String[])
+    terminal = REPL.Terminals.TTYTerminal("", stdin, stdout, stderr)
     for day = 1:25
         !isdefined(@__MODULE__, Symbol("day$day")) && continue
         m = getproperty(@__MODULE__, Symbol("day$day"))
         t1 = onlyOnce ? @elapsed(m.part1((m.input))) : @belapsed($m.part1($(m.input)))
         t2 = onlyOnce ? @elapsed(m.part2((m.input))) : @belapsed($m.part2($(m.input)))
         push!(df, formatTime.((t1, t2)))
+        if !onlyOnce
+            REPL.Terminals.clear(terminal) 
+            display(df)
+        end
     end
     df
 end
