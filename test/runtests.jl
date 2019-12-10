@@ -121,4 +121,14 @@ end
     end
 end
 
+@testset "day10" begin
+    @testset "part1" begin
+        @test part1(day = 10) == 260
+    end
+
+    @testset "part2" begin
+        @test part2(day = 10) == 608
+    end
+end
+
 
