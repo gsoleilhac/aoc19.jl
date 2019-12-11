@@ -1,6 +1,6 @@
 module day6
 
-const input = split.(readlines(joinpath(@__DIR__, "input.txt")), ')')
+readInput() = split.(readlines(joinpath(@__DIR__, "input.txt")), ')')
 
 mutable struct Node
     name::Symbol
@@ -22,7 +22,7 @@ function makeTree(input)
     d
 end
 
-function part1(input)
+function part1(input = readInput())
     d = makeTree(input)
     nbOrbits = 0
     for n in values(d)
@@ -35,7 +35,7 @@ function part1(input)
     nbOrbits    
 end
 
-function part2(input)
+function part2(input = readInput())
     d = makeTree(input)
 
     YOU = d[:YOU]

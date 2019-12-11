@@ -20,8 +20,9 @@ function benchmarkAll(; onlyOnce = false)
     for day = 1:25
         !isdefined(@__MODULE__, Symbol("day$day")) && continue
         m = getproperty(@__MODULE__, Symbol("day$day"))
-        t1 = onlyOnce ? @elapsed(m.part1((m.input))) : @belapsed($m.part1($(m.input)))
-        t2 = onlyOnce ? @elapsed(m.part2((m.input))) : @belapsed($m.part2($(m.input)))
+        input = m.readInput()
+        t1 = onlyOnce ? @elapsed(m.part1(input)) : @belapsed($m.part1($input))
+        t2 = onlyOnce ? @elapsed(m.part2(input)) : @belapsed($m.part2($input))
         push!(df, formatTime.((t1, t2)))
         if !onlyOnce
             REPL.Terminals.clear(terminal) 
@@ -33,19 +34,22 @@ end
 
 function part1(; day::Int = min(Dates.day(Dates.today()), 25))
     m = getproperty(@__MODULE__, Symbol("day$day"))
-    m.part1(m.input)
+    input = m.readInput()
+    m.part1(input)
 end
 
 function part2(; day::Int = min(Dates.day(Dates.today()), 25))
     m = getproperty(@__MODULE__, Symbol("day$day"))
-    m.part2(m.input)
+    input = m.readInput()
+    m.part2(input)
 end
 
 function benchmark(; day::Int = min(Dates.day(Dates.today()), 25))
     df = DataFrame(part1 = String[], part2 = String[])
     m = getproperty(@__MODULE__, Symbol("day$day"))
-    t1 = @belapsed($m.part1($(m.input)))
-    t2 = @belapsed($m.part2($(m.input)))
+    input = m.readInput()
+    t1 = @belapsed($m.part1($input))
+    t2 = @belapsed($m.part2($input))
     push!(df, formatTime.((t1, t2)))
     df
 end

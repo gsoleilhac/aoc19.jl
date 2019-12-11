@@ -2,15 +2,15 @@ module day2
 
 using ..aoc19: run_program!
 
-const input = parse.(Int,split(readline(joinpath(@__DIR__, "input.txt")), ','))
+readInput() = parse.(Int,split(readline(joinpath(@__DIR__, "input.txt")), ','))
 
-function part1(input)
+function part1(input = readInput())
     p = copy(input)
     p[2], p[3] = 12, 2
     run_program!(p)[0]
 end
 
-function part2(input)
+function part2(input = readInput())
     for noun = 0:99, verb = 0:99
         p = copy(input)
         p[2], p[3] = noun, verb

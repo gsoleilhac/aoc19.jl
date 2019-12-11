@@ -1,7 +1,7 @@
 module day3
 
 using DelimitedFiles
-const input = readdlm(joinpath(@__DIR__, "input.txt"), ',', String)
+readInput() = readdlm(joinpath(@__DIR__, "input.txt"), ',', String)
 const dictDir = Dict('U' => (1, 0), 'D' => (-1, 0), 'L' => (0, -1), 'R' => (0, 1))
 
 function createWire(moves)
@@ -48,7 +48,7 @@ function findAllIntersections(wire1, wire2)
     intersections
 end
 
-function part1(input)
+function part1(input = readInput())
     wire1 = createWire(@view input[1, :])
     wire2 = createWire(@view input[2, :])
     intersections = findAllIntersections(wire1, wire2)
@@ -78,7 +78,7 @@ end
 
 segmentLength((a1, a2)) = abs(a1[1] - a2[1]) + abs(a1[2] - a2[2])
 
-function part2(input)
+function part2(input = readInput())
     wire1 = createWire(@view input[1, :])
     wire2 = createWire(@view input[2, :])
     findIntersectionMinLength(wire1, wire2)

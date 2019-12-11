@@ -3,9 +3,9 @@ module day10
 import ..aoc19
 using DelimitedFiles, UnicodePlots, REPL
 
-input = permutedims(reshape([line[x] == '#' for line in readdlm(joinpath(@__DIR__, "input.txt")) for x in 1:length(line)], 24, 24), (2,1))
+readInput() = permutedims(reshape([line[x] == '#' for line in readdlm(joinpath(@__DIR__, "input.txt")) for x in 1:length(line)], 24, 24), (2,1))
 
-function part1(data)
+function part1(data = readInput())
     maxCount = 0
     for i = 1:size(data, 1), j= 1:size(data, 2)
         if data[i,j]
@@ -78,7 +78,7 @@ function blockView!(data, blocked, x, y, dx, dy)
     end
 end
 
-function part2(data, showplot = false, target = 200)
+function part2(data = readInput(), showplot = false, target = 200)
     data = copy(data)
     maxCount, maxI, maxJ = 0, 0, 0
     for i = 1:size(data, 1), j= 1:size(data, 2)

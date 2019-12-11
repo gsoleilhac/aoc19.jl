@@ -2,15 +2,15 @@ module day8
 
 using UnicodePlots
 
-const input = [parse(Int, i) for i in readline(joinpath(@__DIR__, "input.txt"))]
+readInput() = [parse(Int, i) for i in readline(joinpath(@__DIR__, "input.txt"))]
 
-function part1(input, w=25, h=6)
+function part1(input = readInput(), w=25, h=6)
     layers = reshape(input, w, h, :)
     layermin = last(findmin(mapslices(x -> count(==(0), x), layers, dims=(1,2))))[3]
     count(==(1), layers[:,:,layermin]) * count(==(2), layers[:,:,layermin])
 end
 
-function part2(input, w=25, h=6)
+function part2(input = readInput(), w=25, h=6)
     layers = reshape(input, w, h, :)
     img = fill(-1, w, h)
     for i = 1:w, j = 1:h

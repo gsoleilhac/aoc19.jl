@@ -4,11 +4,11 @@ using ..aoc19: run_program!
 
 using DelimitedFiles, Combinatorics
 
-const input = readdlm(joinpath(@__DIR__, "input.txt"), ',', Int) |> vec
+readInput() = readdlm(joinpath(@__DIR__, "input.txt"), ',', Int) |> vec
 
-part1(input) = maximum(run_amplifiers(input, p) for p in permutations(0:4))
+part1(input = readInput()) = maximum(run_amplifiers(input, p) for p in permutations(0:4))
 
-part2(input) = maximum(run_amplifiers(input, p) for p in permutations(5:9))
+part2(input = readInput()) = maximum(run_amplifiers(input, p) for p in permutations(5:9))
 
 function run_amplifiers(input, phases)
     channels = [Channel{Int}(2) for i = 1:5]
