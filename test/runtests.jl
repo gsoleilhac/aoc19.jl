@@ -131,4 +131,14 @@ end
     end
 end
 
+@testset "day11" begin
+    @testset "part1" begin
+        @test part1(day = 11) == 2720
+    end
+
+    @testset "part2" begin
+        @test part2(day = 11) isa aoc19.day11.UnicodePlots.Plot
+    end
+end
+
 

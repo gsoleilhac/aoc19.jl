@@ -1,6 +1,5 @@
 module day10
 
-import ..aoc19
 using DelimitedFiles, UnicodePlots, REPL
 
 readInput() = permutedims(reshape([line[x] == '#' for line in readdlm(joinpath(@__DIR__, "input.txt")) for x in 1:length(line)], 24, 24), (2,1))
