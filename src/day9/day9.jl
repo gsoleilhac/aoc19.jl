@@ -5,7 +5,7 @@ using DelimitedFiles
 
 readInput() = readdlm(joinpath(@__DIR__, "input.txt"), ',', Int) |> vec
 
-function part1(data = readInput(), programInput = 1)
+function part1(data, programInput = 1)
     output = Channel{Int}(Inf)
     input = Channel{Int}(Inf)
     put!(input, programInput)
@@ -14,6 +14,6 @@ function part1(data = readInput(), programInput = 1)
     [o for o in output]
 end
 
-part2(data = readInput()) = part1(data, 2)
+part2(data) = part1(data, 2)
 
 end

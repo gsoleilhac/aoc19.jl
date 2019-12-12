@@ -22,7 +22,7 @@ function makeTree(input)
     d
 end
 
-function part1(input = readInput())
+function part1(input)
     d = makeTree(input)
     nbOrbits = 0
     for n in values(d)
@@ -35,7 +35,7 @@ function part1(input = readInput())
     nbOrbits    
 end
 
-function part2(input = readInput())
+function part2(input)
     d = makeTree(input)
 
     YOU = d[:YOU]

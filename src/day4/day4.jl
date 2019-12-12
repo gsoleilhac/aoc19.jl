@@ -2,7 +2,7 @@ module day4
 
 readInput() = parse.(Int, split(readline(joinpath(@__DIR__, "input.txt")), '-'))
 
-function part1(input = readInput(), f = >=(2))
+function part1(input, f = >=(2))
     cpt, digits, count_digits = 0, zeros(Int, 6), zeros(Int, 9)
     for x = first(input):last(input)
         digits!(digits, x)
@@ -17,6 +17,6 @@ function part1(input = readInput(), f = >=(2))
     cpt
 end
 
-part2(input = readInput()) = part1(input, ==(2))
+part2(input) = part1(input, ==(2))
 
 end

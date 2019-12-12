@@ -141,4 +141,16 @@ end
     end
 end
 
+@testset "day12" begin
+    @testset "part1" begin
+        @test aoc19.day12.part1([[-1, 0, 2], [2, -10, -7], [4, -8, 8], [3, 5, -1]], 10) == 179
+        @test aoc19.day12.part1([[-8, -10, 0], [5, 5, 10], [2, -7, 3], [9, -8, -3]], 100) == 1940
+        @test part1(day = 12) == 14606
+    end
 
+    @testset "part1" begin
+        @test aoc19.day12.part2([[-1, 0, 2], [2, -10, -7], [4, -8, 8], [3, 5, -1]]) == 2772
+        @test aoc19.day12.part2([[-8, -10, 0], [5, 5, 10], [2, -7, 3], [9, -8, -3]]) == 4686774924
+        @test part2(day = 12) == 543673227860472
+    end
+end

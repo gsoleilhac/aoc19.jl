@@ -48,7 +48,7 @@ function findAllIntersections(wire1, wire2)
     intersections
 end
 
-function part1(input = readInput())
+function part1(input)
     wire1 = createWire(@view input[1, :])
     wire2 = createWire(@view input[2, :])
     intersections = findAllIntersections(wire1, wire2)
@@ -78,7 +78,7 @@ end
 
 segmentLength((a1, a2)) = abs(a1[1] - a2[1]) + abs(a1[2] - a2[2])
 
-function part2(input = readInput())
+function part2(input)
     wire1 = createWire(@view input[1, :])
     wire2 = createWire(@view input[2, :])
     findIntersectionMinLength(wire1, wire2)

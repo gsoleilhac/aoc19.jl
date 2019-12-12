@@ -12,7 +12,7 @@ const LEFT = (0, -1)
 turnLeft(d) = d == UP ? LEFT : (d == RIGHT ? UP : (d == DOWN ? RIGHT : DOWN))
 turnRight(d) = d == UP ? RIGHT : (d == RIGHT ? DOWN : (d == DOWN ? LEFT : UP))
 
-function part1(data = readInput())
+function part1(data)
     pos = (0, 0)
     dir = UP
     painted = Dict{Tuple{Int, Int}, Int}()
@@ -33,7 +33,7 @@ function part1(data = readInput())
     length(painted)
 end
 
-function part2(data = readInput())
+function part2(data)
     pos = (0, 0)
     dir = UP
     painted = Dict((0, 0) => 1)
