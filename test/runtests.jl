@@ -164,3 +164,13 @@ end
         @test part2(day = 13) == 16309
     end
 end
+
+@testset "day14" begin
+    @testset "part1" begin
+        @test part1(day = 14) == 136771
+    end
+
+    @testset "part1" begin
+        @test part2(day = 14) == 8193614
+    end
+end
